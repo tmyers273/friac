@@ -76,9 +76,19 @@ else
 fi
 
 # Config
+read -p "  Enter a password for redis auth. Blank for random: " -r -e
+if [[ $REPLY == '' ]]
+then
+    password=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+else
+    password=$REPLY
+fi
+echo "  Password is: $password"
+
 echo -ne "  Setting up configuration file..."
 #sed -i ///g /etc/redis/redis.conf
 sed -i '/exit 0/d' /etc/rc.local
+sed -i "s/requirepass .*/requirepass $password/g" /etc/redis/redis.conf
 
 echo "vm.overcommit_memory = 1" >> /etc/sysctl.conf
 sysctl vm.overcommit_memory=1 >> $LOGFILE
