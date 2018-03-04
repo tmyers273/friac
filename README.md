@@ -5,3 +5,10 @@ Used to setup Redis 4.0, configure multiple instances in systemd, and setup twem
 
 Meant to be used in Ubuntu on Digital Ocean.
 
+# Installation
+
+```
+https://raw.githubusercontent.com/tmyers273/friac/master/redis.sh
+chmod +x redis.sh
+./redis.sh
+```
