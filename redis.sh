@@ -179,7 +179,7 @@ then
     echo "  hash: fnv1a_64" >> /etc/nutcracker/nutcracker.yml
     echo "  distribution: ketama" >> /etc/nutcracker/nutcracker.yml
     echo "  redis: true" >> /etc/nutcracker/nutcracker.yml
-    echo "  redis_auth: my_redis_pass" >> /etc/nutcracker/nutcracker.yml
+    echo "  redis_auth: $password" >> /etc/nutcracker/nutcracker.yml
     echo "  servers:" >> /etc/nutcracker/nutcracker.yml
     echo "   - 127.0.0.1:6379:1" >> /etc/nutcracker/nutcracker.yml
     for i in "${Ports[@]}"
