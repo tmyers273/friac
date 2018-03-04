@@ -8,7 +8,7 @@ Meant to be used in Ubuntu on Digital Ocean.
 # Installation
 
 ```
-https://raw.githubusercontent.com/tmyers273/friac/master/redis.sh
+wget https://raw.githubusercontent.com/tmyers273/friac/master/redis.sh
 chmod +x redis.sh
 ./redis.sh
 ```
