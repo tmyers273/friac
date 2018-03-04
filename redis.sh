@@ -7,7 +7,7 @@ touch $LOGFILE
 # Functions
 
 package_installed () {
-  return $(dpkg-query -W -f='${Status}' $1 | grep -c "ok installed")
+  return $(dpkg-query -W -f='${Status}' $1 2>&1 2>&1 | grep -c "ok installed")
 }
 
 setup_multi_redis () {
@@ -65,7 +65,7 @@ echo
 echo "Starting redis related stuff"
 echo -ne "  Is redis-server already installed? "
 redis_installed=$(package_installed redis-server)
-if $redis_installed; then
+if [ "$redis_installed" == "1" ]; then
   echo "  Yep. Skipping redis setup."
 else
   echo -ne "  Starting redis setup..."
@@ -154,7 +154,7 @@ then
     echo "  Starting twemproxy setup"
     
     twemproxy_installed=$(package_installed twemproxy)
-    if $twemproxy_installed; then
+    if [ "$twemproxy_installed" == "1" ]; then
         echo "  Looks like twemproxy is already installed. Skipping installation."
     else
         echo -ne "  Adding repository..."
