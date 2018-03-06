@@ -12,3 +12,7 @@ wget https://raw.githubusercontent.com/tmyers273/friac/master/redis.sh
 chmod +x redis.sh
 ./redis.sh
 ```
+
+# Todo
+
+- Add default `hash_tag` field to nutcracker.yml
