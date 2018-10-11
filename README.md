@@ -7,11 +7,15 @@ Meant to be used in Ubuntu on Digital Ocean. Private networking should be enable
 
 # Installation
 
-```
-wget https://raw.githubusercontent.com/tmyers273/friac/master/redis.sh
-chmod +x redis.sh
-./redis.sh
-```
+1. 
+  ```
+  wget https://raw.githubusercontent.com/tmyers273/friac/master/redis.sh
+  chmod +x redis.sh
+  ./redis.sh
+  ```
+
+2. Uncomment `requirepass` line in `/etc/redis/redis.conf`
+3. `service redis restart`
 
 # Todo
 
